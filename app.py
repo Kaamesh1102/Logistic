@@ -15,5 +15,15 @@ def create_app():
 
 app = create_app()
 
+with app.app_context():
+    db.create_all()
+
+    app.security.datastore.find_or_create_role(name = 'admin',description = 'super-user')
+    app.security.datastore.find_or_create_role(name = 'user',description = 'gerneral-user')
+    db.session.commit()
+
+    if not app.security.datastore.find_user(email = "user0@admin.com"):
+        print()
+
 if __name__ == "main":
     app.run()
