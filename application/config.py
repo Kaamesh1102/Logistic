@@ -1,9 +1,9 @@
 class Config():
     DEBUG = False
-    SQL_ALCHEMY_TRACK_MODIFICATIONS = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
 
-class LocalDevelopmentCongif(Config):
-    SQL_ALCHEMY_DATABASE_URL = "sqlite:///lmsv2.sqlite3"
+class LocalDevelopmentConfig(Config):
+    SQLALCHEMY_DATABASE_URI = "sqlite:///lmsv2.sqlite3"
     DEBUG = True
 
     SECRET_KEY = "this-is-a-secret-key"

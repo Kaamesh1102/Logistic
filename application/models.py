@@ -14,10 +14,8 @@ class Role(db.Model,RoleMixin):
     id = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.String,unique = True,nullable = False)
     description = db.Column(db.String)
-    # fs_uniquifier = db.Column(db.String,unique = True,nullable = False)
-    # active = db.Column(db.Boolean,nullable = False)
 
 class UserRoles(db.Model):
     id = db.Column(db.Integer,primary_key = True)
     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
-    user_id = db.Column(db.Integer,db.ForeignKey('role.id'))
+    role_id = db.Column(db.Integer,db.ForeignKey('role.id'))
